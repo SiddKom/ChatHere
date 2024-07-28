@@ -1,0 +1,31 @@
+.logo{
+    display: block;
+    margin: auto;
+    height: 80px;
+    width: 110px;
+}
+.main{
+    background-color: rebeccapurple;
+    max-width: 1000px;
+    margin: auto;
+    height: 80vh;
+}
+
+.message{
+    background-color: green;
+    width: 25%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px, solid, black;
+    border-radius: 12px;
+}
+.left{
+    float: left;
+    clear: both;
+}
+.right{
+    float: right;
+    clear: both;
+}
