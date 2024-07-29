@@ -3,13 +3,17 @@ const socket = io('http://localhost:8000');
 const form = document.getElementById('sendContainer');
 const messageInput = document.getElementById('messageInp');
 const messageContainer = document.querySelector(".main");
+var notifi = new Audio('Notification.mp3');
 
 const append = (message, position) => {
     const messageElement = document.createElement('div');
     messageElement.innerText = message;
     messageElement.classList.add('message');
     messageElement.classList.add(position);
-    messageContainer.append(messageElement);    
+    messageContainer.append(messageElement);   
+    if(position == 'left'){
+        notifi.play();
+    } 
 }
 
 form.addEventListener('submit', (e)=>{
@@ -28,5 +32,8 @@ socket.on('user-joined', user=>{
 })
 socket.on('recived', data =>{
     append(`${data.name}: ${data.message}`, 'left');
+})
+socket.on('left', data =>{
+    append(`${data} has left the chat`, 'left');
 })
 
